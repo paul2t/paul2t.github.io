@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<a href="https://github.com/paul2t/gitconfig">https://github.com/paul2t/gitconfig</a>
+<h3><a href="https://github.com/paul2t/gitconfig/blob/master/.bashrc">.bashrc</a></h3>
+<pre>
+alias g='git'
+complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null || complete -o default -o nospace -F _git g
+alias g2='git --git-dir=.git2'
+complete -o bashdefault -o default -o nospace -F _git g2 2>/dev/null || complete -o default -o nospace -F _git g2
+</pre>
+<h3><a href="https://github.com/paul2t/gitconfig/blob/master/.gitconfig">.gitconfig</a></h3>
+<pre>
+[user]
+	name = 
+	email = 
+[alias]
+	s = status -bs -uno
+	st = status -bs
+	ci = commit
+	co = checkout
+	br = branch
+	f = fetch --prune
+	fa = fetch --prune --all
+	l = log --color --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -20
+	la = log --color --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -20 --all
+	ls = log --color --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -5 --stat=211
+	ll = log -1
+	lls = log -1 --stat=211
+	llf = log -1 --pretty=fuller
+	logmove = log --follow
+	ls-ignored = !git ls-files -v | grep \"^[[:lower:]]\"
+	d = diff
+	dh = diff HEAD
+	ds = diff --stat=211
+	dst = diff --staged --stat=211
+	dsh = diff HEAD --stat=211
+	dt = diff --staged
+	dw = diff --color-words=.
+	dwt = diff --staged --color-words=.
+	dwh = diff HEAD --color-words=.
+	fmerge = merge --ff-only
+	mergeff = merge --ff-only
+	ffmerge = merge --ff-only
+	fpull = pull --ff-only
+	rb = rebase
+	reb = rebase --committer-date-is-author-date
+	rbc = rebase --continue
+	ss = show --stat=211
+	sw = show --color-words=.
+	chp = cherry-pick
+	chpc = cherry-pick --continue
+	ciane = commit --amend --no-edit
+	restart-merge = checkout -m
+[core]
+	pager = less -FXRS -x4
+	fscache = true
+[push]
+	default = upstream
+[merge]
+	tool = p4merge
+	conflictstyle = diff3
+[mergetool "meld"]
+	path = C:\\Program Files\\Meld\\meld\\meld.exe
+[mergetool "p4merge"]
+	path = C:\\Program Files\\Perforce\\p4merge.exe
+[mergetool "smerge"]
+	path = C:\\Program Files\\Sublime Merge\\smerge.exe
+	cmd = smerge mergetool "$BASE" "$LOCAL" "$REMOTE" -o "$MERGED"
+	trustExitCode = true
+[rerere]
+	enabled = true
+[rebase]
+	autosquash = true
+[gpg "x509"]
+	program = smimesign
+[gpg]
+	format = x509
+	program = smimesign
+[advice]
+	detachedHead = false
+</pre>
+
+</body>
+</html>
